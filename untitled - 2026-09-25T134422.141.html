@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAVIN INTERNATIONAL TRADING — نموذج إخلاء طرف</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  /* تعريف الثوابت والألوان للوضع الفاتح (الأساسي) والوضع الليلي */
+  :root[data-theme="light"] {
+    --bg-deep: #f4f6f9;
+    --panel: #ffffff;
+    --orange: #e8821e;
+    --orange-bright: #d47012;
+    --cream: #ffffff;
+    --ink: #1c1a17;
+    --muted: #64748b;
+    --ok: #3a7d5c;
+    --red: #c0453a;
+    --green: #4a7c59;
+    --report-bg: #fff;
+    --report-dark: #121029;
+    --report-gold: #c3935b;
+    --form-bg: #ffffff;
+    --input-bg: #fff;
+    --input-border: rgba(28,26,23,0.15);
+    --hero-bg: linear-gradient(135deg, #111111 0%, #222222 100%);
+    --card-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+  :root[data-theme="dark"] {
+    --bg-deep: #0b0b0c;
+    --panel: #141314;
+    --orange: #e8821e;
+    --orange-bright: #ffab52;
+    --cream: #f6f1e7;
+    --ink: #f7f4ee;
+    --muted: #9a9488;
+    --ok: #3a7d5c;
+    --red: #c0453a;
+    --green: #4a7c59;
+    --report-bg: #141314;
+    --report-dark: #121029;
+    --report-gold: #c3935b;
+    --form-bg: #1a1816;
+    --input-bg: #0b0b0c;
+    --input-border: rgba(255,255,255,0.15);
+    --hero-bg: linear-gradient(135deg, #0b0b0c 0%, #1a1816 100%);
+    --card-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg-deep);font-family:'Cairo',sans-serif;color:var(--ink);min-height:100vh;transition: background-color 0.3s, color 0.3s;}
+  .page{max-width:960px;margin:0 auto;}
+  
+  .hex-bg{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 0L56 16v32L28 64 0 48V16z' fill='none' stroke='rgba(232,130,30,0.10)' stroke-width='1'/%3E%3C/svg%3E");
+    background-size:56px 100px;
+  }
+
+  .hero {
+    position: relative; overflow: hidden;
+    background: var(--hero-bg);
+    padding: 25px 30px; border-bottom: 2px solid var(--orange);
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -50px; right: 25%; width: 3px; height: 150%;
+    background: var(--orange); transform: rotate(35deg); box-shadow: 0 0 25px 4px var(--orange); opacity: 0.15;
+  }
+  .hero::after {
+    content: ''; position: absolute; bottom: -50px; left: 10%; width: 2px; height: 150%;
+    background: var(--orange-bright); transform: rotate(35deg); box-shadow: 0 0 20px 2px var(--orange-bright); opacity: 0.08;
+  }
+  
+  .hero-content {
+    position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;
+  }
+  
+  .brand-logo-container {
+    background: #000;
+    border: 2px solid rgba(232,130,30,0.7);
+    border-radius: 12px;
+    padding: 10px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 25px rgba(232,130,30,0.25);
+    order: 1;
+    min-width: 140px;
+  }
+  .brand-logo-container .ravin-logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 5px;
+    text-shadow: 0 0 15px rgba(232, 130, 30, 0.7);
+  }
+  .brand-logo-container .ravin-logo-text span {
+    color: var(--orange);
+  }
+
+  .title-side { display: flex; flex-direction: column; align-items: center; order: 2; flex: 1; text-align: center; }
+  .main-title-wrap { width: 100%; }
+  .main-title-wrap h1 { margin: 0; color: #fff; font-size: clamp(22px, 3.5vw, 32px); font-weight: 900; text-shadow: 0 4px 15px rgba(0,0,0,0.8); }
+  
+  .sub-wrap { 
+    display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 6px; white-space: nowrap; width: 100%;
+  }
+  .sub-wrap .line { height: 1px; width: 35px; background: var(--orange); flex-shrink: 1; }
+  .sub-wrap .sub { 
+    margin: 0; color: var(--orange-bright); font-family: 'Poppins', sans-serif; 
+    letter-spacing: 2.5px; font-size: 11px; font-weight: 700; white-space: nowrap; 
+  }
+
+  .brand-side { display: flex; flex-direction: column; align-items: center; order: 3; gap: 8px; min-width: 220px; }
+  
+  .theme-toggle {
+    background: rgba(255, 255, 255, 0.1); border: 1px solid var(--orange); color: #fff;
+    width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: 0.3s; font-size: 16px; margin-bottom: 5px;
+  }
+  .theme-toggle:hover { background: var(--orange); color: #000; }
+
+  .made-by-badge {
+    border: 1.5px solid var(--orange); border-radius: 12px; padding: 8px 14px; text-align: center;
+    background: rgba(0,0,0,0.7); box-shadow: 0 0 20px rgba(232, 130, 30, 0.25); width: 100%;
+  }
+  .made-by-badge .name { color: #ffab52; font-size: 12px; font-family: 'Poppins', sans-serif; letter-spacing: 0.5px; font-weight: 800; }
+  .made-by-badge .role { color: #ffffff; font-size: 10.5px; font-weight: 700; letter-spacing: 0.5px; margin-top: 2px; font-family: 'Poppins', sans-serif; }
+
+  .btn-quick-search {
+    display: none;
+    background: linear-gradient(135deg, rgba(232, 130, 30, 0.2), rgba(255, 171, 82, 0.1));
+    border: 1.5px solid var(--orange);
+    color: var(--orange-bright);
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    align-items: center;
+    gap: 6px;
+    transition: 0.3s;
+  }
+  .btn-quick-search:hover {
+    background: var(--orange);
+    color: #141314;
+    box-shadow: 0 0 15px rgba(232,130,30,0.5);
+  }
+
+  @media (max-width: 850px){ 
+    .hero-content { flex-direction: column; text-align: center; } 
+    .brand-logo-container { order: 1; } 
+    .title-side { order: 2; } 
+    .brand-side { order: 3; width: 100%; } 
+    .sub-wrap .line { width: 20px; }
+  }
+
+  .stepper{display:flex;background:var(--panel);border-bottom:1px solid rgba(255,255,255,0.06);overflow-x:auto;}
+  .step-dot{flex:1;min-width:150px;text-align:center;padding:16px 10px;font-size:12px;color:var(--muted);border-bottom:3px solid transparent;transition:.2s;}
+  .step-dot.active{color:var(--ink);border-bottom-color:var(--orange); font-weight:700;}
+  .step-dot.done{color:var(--orange-bright);}
+  
+  form{background:var(--bg-deep);padding:22px 20px 48px;}
+  .step-panel{background:var(--form-bg);border-radius:10px;overflow:hidden;box-shadow: var(--card-shadow); border: 1px solid var(--input-border);}
+  .panel-header{background:linear-gradient(90deg,#141414,#1c1a17);padding:18px 22px;border-bottom:2px solid var(--orange);}
+  .panel-header h2{color:#fff;margin:0;font-size:17px;font-weight:700;}
+  .panel-header p{margin:2px 0 0;color:var(--orange-bright);font-size:10.5px;letter-spacing:2px;font-family:'Poppins',sans-serif;}
+  
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:26px 24px;}
+  @media (max-width:600px){.grid{grid-template-columns:1fr;}}
+  .field.full{grid-column:1/-1;}
+  .field label{display:block;font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+  .field input, .field select, .field textarea{ width:100%;padding:12px 14px;border-radius:7px;border:1.5px solid var(--input-border); background:var(--input-bg); color:var(--ink); font-family:'Cairo',sans-serif;font-size:14px;outline:none; transition: border 0.3s;}
+  .field textarea{min-height:70px;}
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--orange);}
+  
+  .lookup-hint{display:block;margin-top:6px;font-size:11.5px;} .lookup-hint.found{color:var(--ok);} .lookup-hint.notfound{color:var(--red);}
+
+  .smart-block{padding:22px 24px;border-bottom:1px dashed var(--input-border);}
+  .smart-q{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  .toggle{display:flex;gap:10px;}
+  .toggle label{display:flex;align-items:center;gap:6px;padding:9px 20px;border-radius:24px;border:1.5px solid var(--input-border);background:var(--input-bg);color:var(--ink);font-size:13.5px;cursor:pointer;}
+  label.opt-yes:has(input:checked){border-color:var(--red);background:rgba(192,69,58,0.1);}
+  label.opt-no:has(input:checked){border-color:var(--green);background:rgba(58,125,93,0.12);}
+  
+  .reveal{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:16px;background:rgba(192,69,58,0.05);border:1px solid rgba(192,69,58,0.25);border-radius:8px;padding:16px;}
+  .reveal[hidden]{display:none;}
+
+  .step-actions{display:flex;justify-content:space-between;gap:12px;padding:20px 4px 0;}
+  .btn{padding:14px 26px;border:none;border-radius:8px;font-family:'Cairo',sans-serif;font-weight:800;font-size:14.5px;cursor:pointer;}
+  .btn-next{background:linear-gradient(90deg,var(--orange),var(--orange-bright));color:#241a0c;margin-right:auto;}
+  .btn-back{background:transparent;border:1.5px solid var(--muted);color:var(--ink);}
+  .btn-submit{width:100%;background:linear-gradient(90deg,#2f8f5b,#4bbf82);color:#0d2417;font-size:16px;padding:16px;}
+
+  /* ================= REPORT SECTION ================= */
+  #reportSection {
+    background: var(--report-bg); color: var(--ink);
+    max-width: 900px; margin: 20px auto;
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  }
+  .rep-header { 
+    background: linear-gradient(135deg, #0b0b0c 0%, #1a1816 100%);
+    position: relative; padding: 25px 40px; border-bottom: 4px solid var(--orange);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
+  }
+  .rep-logo-box .ravin-logo-text { font-family: 'Poppins', sans-serif; font-size: 20px; font-weight: 900; color: #fff; letter-spacing: 3px; }
+  .rep-logo-box .ravin-logo-text span { color: var(--orange); }
+  
+  .rep-title { text-align: center; color: #fff; position: relative; z-index: 1; flex: 1;}
+  .rep-title h1 { margin: 0; font-size: 24px; font-weight: 900; font-family: 'Poppins', sans-serif; letter-spacing: 2px; }
+  .rep-title p { margin: 4px 0 0; font-size: 13px; font-weight: 700; color: var(--orange-bright); }
+  .rep-meta { 
+    text-align: left; background: rgba(255,255,255,0.05); color: #fff; 
+    padding: 12px 18px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);
+    font-family: 'Poppins', sans-serif; font-size: 11px; position: relative; z-index: 1;
+  }
+  .rep-meta span { color: var(--orange-bright); font-weight: bold; }
+  
+  .rep-body { padding: 30px; }
+  .rep-box { border: 1px solid var(--input-border); border-radius: 8px; margin-bottom: 20px; overflow: hidden; background: var(--form-bg); }
+  .rep-box-header { 
+    background: var(--report-dark); color: #fff; padding: 10px 20px; display: flex; align-items: center; gap: 10px;
+    font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600;
+  }
+  .rep-box-header span.num { background: var(--report-gold); color: #000; padding: 2px 10px; border-radius: 4px; font-weight: 800; }
+  
+  .rep-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .rep-item { padding: 12px 20px; border-bottom: 1px solid var(--input-border); border-left: 1px solid var(--input-border); font-size: 14px; display: flex; justify-content: space-between;}
+  .rep-item:nth-child(even) { border-left: none; }
+  .rep-item .lbl { color: var(--muted); font-size: 11px; font-weight: 700; text-transform: uppercase; font-family: 'Poppins', sans-serif;}
+  .rep-item .val { font-weight: 700; color: var(--ink); }
+
+  .status-box { margin: 20px 0; padding: 20px; border-radius: 10px; font-size: 16px; font-weight: 800; }
+  .status-success { background: rgba(58,125,93,0.08); border: 2px solid var(--green); color: var(--green); display: flex; justify-content: center; align-items: center; gap: 20px; text-align: center; }
+  .status-danger { background: rgba(192,69,58,0.05); border: 2px solid var(--red); display: flex; flex-direction: column; }
+  .danger-header { display: flex; align-items: center; gap: 10px; color: var(--red); margin-bottom: 10px; }
+  .deduction-grid { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+  .deduction-item { 
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--form-bg); padding: 10px 15px; border-radius: 6px; border-right: 4px solid var(--red);
+  }
+  .deduction-item .reason { font-weight: 700; color: var(--ink); font-size: 14px; }
+  .deduction-item .amount { font-weight: 900; color: var(--red); font-size: 14px; background: rgba(192,69,58,0.08); padding: 4px 12px; border-radius: 6px; }
+  .status-total { margin-top: 12px; text-align: center; font-size: 16px; font-weight: 900; background: var(--red); color: #fff; padding: 8px 15px; border-radius: 6px; }
+
+  .rep-footer-new {
+    display: flex; justify-content: space-evenly; align-items: center;
+    border: 1px solid var(--input-border); border-radius: 8px; padding: 15px 10px;
+    margin-top: 20px; background: var(--form-bg); direction: ltr; 
+  }
+  .footer-divider { width: 1px; background-color: var(--input-border); align-self: stretch; margin: 0 10px; }
+  .footer-left { display: flex; flex-direction: column; align-items: center; text-align: center; width: 45%; }
+  .fc-title { font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: 6px; margin-bottom: 2px; }
+  .fc-title .check-icon { color: var(--green); font-size: 16px; }
+  .fc-sub { font-family: 'Cairo', sans-serif; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+  .stamp-box { border: 2px solid var(--green); color: var(--green); padding: 6px 20px; font-size: 22px; font-weight: 900; font-family: 'Poppins', sans-serif; border-radius: 6px; transform: rotate(-5deg); margin-bottom: 10px; }
+  .fc-date-line { width: 80%; height: 1px; background-color: var(--muted); margin-bottom: 6px; }
+  .fc-date { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; color: var(--ink); }
+
+  .footer-right { display: flex; flex-direction: column; align-items: center; text-align: center; width: 45%; }
+  .fa-title {
+    background: var(--report-dark); color: #fff; padding: 8px 15px; border-radius: 6px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 600; width: 100%; margin-bottom: 10px;
+  }
+  .fa-title .num-badge { background: var(--report-gold); color: #000; padding: 2px 8px; border-radius: 4px; font-weight: 800; }
+  .sig-line { width: 80%; height: 1px; background-color: var(--muted); margin-bottom: 4px; }
+  .sig-name { font-family: 'Dancing Script', cursive; font-size: 32px; font-weight: 700; color: var(--orange-bright); margin-bottom: 2px; }
+  .sig-role { font-family: 'Poppins', sans-serif; font-size: 11px; color: var(--muted); }
+
+  .owner-actions { text-align: center; margin-top: 30px; margin-bottom: 30px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .btn-print { background: var(--report-dark); color: #fff; font-size: 18px; padding: 12px 30px; border: none; border-radius: 8px; cursor: pointer; font-family: 'Cairo', sans-serif; font-weight: 700; width: 100%; max-width: 320px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: .2s; }
+  .btn-print:hover { transform: translateY(-2px); }
+  
+  .btn-newentry { 
+    background: linear-gradient(135deg, var(--orange) 0%, #d47012 100%); 
+    color: #fff; font-size: 17px; padding: 12px 30px; border: none; border-radius: 8px; 
+    cursor: pointer; font-family: 'Cairo', sans-serif; font-weight: 800; width: 100%; max-width: 320px; 
+    box-shadow: 0 4px 15px rgba(232, 130, 30, 0.3); transition: .2s; 
+  }
+  .btn-newentry:hover { transform: translateY(-2px); }
+
+  /* نافذة البحث المودال */
+  .modal-overlay {
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.75); z-index: 9999; justify-content: center; align-items: center;
+  }
+  .modal-card {
+    background: var(--form-bg); border: 2px solid var(--orange); border-radius: 12px;
+    padding: 24px; width: 90%; max-width: 420px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    color: var(--ink); font-family: 'Cairo', sans-serif;
+  }
+
+  @media print {
+    body { background: #fff !important; color: #000 !important; }
+    .hero, .stepper, form, .owner-actions, .modal-overlay { display: none !important; }
+    body:not(.owner-mode) #reportSection { display: none !important; }
+    #reportSection { display: block !important; box-shadow: none; margin: 0 auto; padding: 0; width: 100%; max-width: 190mm; border: none; font-size: 10px; background: #fff !important; color: #000 !important; }
+    @page { size: A4 portrait; margin: 5mm; }
+    .rep-header { padding: 8px 12px; background: #121029 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .rep-title h1 { font-size: 14px; }
+    .rep-title p { font-size: 9px; }
+    .rep-meta { font-size: 8px; padding: 4px 6px; }
+    .rep-body { padding: 8px; }
+    .rep-box { margin-bottom: 5px; page-break-inside: avoid; background: #fff !important; border-color: #ddd !important; }
+    .rep-box-header { padding: 3px 6px; font-size: 10px; background: #121029 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .rep-item { padding: 3px 6px; font-size: 10px; border-color: #ddd !important; }
+    .rep-item .lbl { color: #555 !important; }
+    .rep-item .val { color: #000 !important; }
+    .status-box { margin: 5px 0; padding: 6px; font-size: 10.5px; page-break-inside: avoid; }
+    .deduction-item { padding: 3px 6px; background: #fff !important; }
+    .rep-footer-new { margin-top: 5px; padding: 5px 4px; page-break-inside: avoid; background: #fff !important; border-color: #ddd !important; }
+    .fc-title, .fc-sub, .fc-date { color: #000 !important; }
+    .fa-title { background: #121029 !important; color: #fff !important; padding: 3px 6px; font-size: 9px; -webkit-print-color-adjust: exact; print-color-adjust: exact; display: flex !important; }
+    .fa-title .num-badge { background: var(--report-gold) !important; color: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .sig-name { font-size: 18px; color: #121029 !important; }
+    .stamp-box { padding: 2px 8px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page" id="mainApp">
+  <header class="hero hex-bg">
+    <div class="hero-content">
+      
+      <div class="brand-logo-container">
+        <div class="ravin-logo-text">RAV<span>IN</span></div>
+      </div>
+      
+      <div class="title-side">
+        <div class="main-title-wrap">
+          <h1>نموذج إخلاء طرف</h1>
+          <div class="sub-wrap">
+            <span class="line"></span>
+            <p class="sub">EMPLOYEE CLEARANCE FORM</p>
+            <span class="line"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="brand-side">
+        <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()" title="تغيير المظهر">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
+        <div class="made-by-badge">
+          <div class="name">HR EBRAHIM HASSAN</div>
+          <div class="role">System Administrator & HR</div>
+        </div>
+        <button type="button" class="btn-quick-search" id="openSearchModalBtn">
+          🔍 استعلام وطباعة تقرير
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="stepper" id="stepper">
+    <div class="step-dot active" data-dot="1"><span class="n">01</span> البيانات الشخصية</div>
+    <div class="step-dot" data-dot="2"><span class="n">02</span> الاستقالة</div>
+    <div class="step-dot" data-dot="3"><span class="n">03</span> عهدة الشركة</div>
+    <div class="step-dot" data-dot="4"><span class="n">04</span> القيود المالية</div>
+  </div>
+
+  <form id="clearanceForm">
+    <section class="step-panel" data-step="1">
+      <div class="panel-header"><h2>01 — البيانات الشخصية</h2><p>PERSONAL INFORMATION</p></div>
+      <div class="grid">
+        <div class="field"><label>🆔 رقم البصمة / Employee ID</label><input type="text" id="employeeIdInput" required autocomplete="off"><span class="lookup-hint" id="lookupHint"></span></div>
+        <div class="field"><label>👤 الاسم رباعي / Full Name</label><input type="text" id="fullNameInput" required></div>
+        <div class="field"><label>🏢 الفرع / Branch</label><input type="text" id="branchInput" required></div>
+        <div class="field"><label>💼 الوظيفة / Job Position</label><input type="text" id="jobPositionInput" required></div>
+        <div class="field"><label>📱 رقم الموبايل / Mobile</label><input type="tel" id="mobileInput" required></div>
+        <div class="field"><label>📅 آخر يوم عمل / Last Working Date</label><input type="date" id="lastWorkingDateInput" required></div>
+      </div>
+      <div class="step-actions"><button type="button" class="btn btn-next" data-next="2">استكمال الإخلاء ←</button></div>
+    </section>
+
+    <section class="step-panel" data-step="2" hidden>
+      <div class="panel-header"><h2>02 — الاستقالة</h2><p>RESIGNATION</p></div>
+      <div class="grid">
+        <div class="field"><label>📄 حالة الاستقالة / Resignation Status</label>
+          <select id="resignationStatusInput" required>
+            <option value="">اختر...</option>
+            <option value="استقاله مقدمة ومعتمده">استقاله مقدمة ومعتمده</option>
+            <option value="انقطاع عن العمل">انقطاع عن العمل</option>
+            <option value="انهاء خدمة وايقاف عن العمل من اداره الشركة">انهاء خدمة وايقاف عن العمل من اداره الشركة</option>
+          </select>
+        </div>
+        <div class="field"><label>📅 هل تم استكمال 14 يوم؟</label>
+          <select id="days14Input" required><option value="">اختر...</option><option value="نعم">نعم</option><option value="لا">لا</option></select>
+        </div>
+        <div class="field full file-field"><label>📎 رفع الايميل المرسل من الموارد البشرية (إجباري)</label>
+          <input type="file" id="resignationDocInput" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" required>
+        </div>
+      </div>
+      <div class="step-actions">
+        <button type="button" class="btn btn-back" data-back="1">→ رجوع</button>
+        <button type="button" class="btn btn-next" data-next="3">استكمال الإخلاء ←</button>
+      </div>
+    </section>
+
+    <section class="step-panel" data-step="3" hidden>
+      <div class="panel-header"><h2>03 — عهدة الشركة</h2><p>COMPANY ASSETS</p></div>
+      
+      <div class="smart-block">
+        <div class="smart-q">
+          <span class="q-label">👕 هل عليه عهدة يونيفورم لم تُرجع؟</span>
+          <div class="toggle">
+            <label class="opt-no"><input type="radio" name="uniformIssue" value="لا" required><span>🟢 لا</span></label>
+            <label class="opt-yes"><input type="radio" name="uniformIssue" value="نعم"><span>🔴 نعم</span></label>
+          </div>
+        </div>
+        <div class="reveal" id="uniformReveal" hidden>
+          <div class="field">
+            <label>يونيفورم شتوي (العدد)</label>
+            <input type="number" id="uniformWinterInput" min="0" value="0" placeholder="اكتب العدد فقط">
+          </div>
+          <div class="field">
+            <label>يونيفورم صيفي (العدد)</label>
+            <input type="number" id="uniformSummerInput" min="0" value="0" placeholder="اكتب العدد فقط">
+          </div>
+          <div class="field full">
+            <label>إجمالي قيمة عهدة اليونيفورم (للحساب المالي - شتوي × 100 | صيفي × 50)</label>
+            <input type="number" id="uniformValue" readonly style="font-weight: bold; color: var(--red);" value="0">
+          </div>
+        </div>
+      </div>
+
+      <div class="smart-block">
+        <div class="smart-q">
+          <span class="q-label">🏷️ هل عليه Name Tag لم يُسلَّم؟</span>
+          <div class="toggle">
+            <label class="opt-no"><input type="radio" name="nameTagIssue" value="لا" required><span>🟢 لا</span></label>
+            <label class="opt-yes"><input type="radio" name="nameTagIssue" value="نعم"><span>🔴 نعم</span></label>
+          </div>
+        </div>
+        <div class="reveal" id="nameTagReveal" hidden>
+          <div class="field"><label>نوع القطعة</label><select id="nameTagType"><option value="">اختر...</option><option value="بلاستيك">بلاستيك</option><option value="معدن">معدن</option><option value="أخرى">أخرى</option></select></div>
+          <div class="field"><label>العدد</label><input type="number" id="nameTagValue" min="1" value="1"></div>
+        </div>
+      </div>
+      <div class="grid" style="padding-top:6px;">
+        <div class="field full"><label>📦 عهد أخرى (إن وجدت) / Other Assets</label><input type="text" id="otherAssetsInput" placeholder="مثال: جهاز POS، مفاتيح، لاب توب..."></div>
+      </div>
+      <div class="step-actions">
+        <button type="button" class="btn btn-back" data-back="2">→ رجوع</button>
+        <button type="button" class="btn btn-next" data-next="4">استكمال الإخلاء ←</button>
+      </div>
+    </section>
+
+    <section class="step-panel" data-step="4" hidden>
+      <div class="panel-header"><h2>04 — القيود المالية</h2><p>FINANCIAL CLEARANCE</p></div>
+      <div class="smart-block"><div class="smart-q"><span class="q-label">💰 هل عليه أي عهدة أو مستحقات مالية؟</span><div class="toggle"><label class="opt-no"><input type="radio" name="duesIssue" value="لا" required><span>🟢 لا</span></label><label class="opt-yes"><input type="radio" name="duesIssue" value="نعم"><span>🔴 نعم</span></label></div></div>
+        <div class="reveal" id="duesReveal" hidden>
+          <div class="field"><label>نوع المستحقات</label><input type="text" id="duesType"></div>
+          <div class="field"><label>قيمة المستحقات</label><input type="number" id="duesValue" min="0"></div>
+          <div class="field full"><label>ملاحظات</label><textarea id="duesNotes"></textarea></div>
+        </div>
+      </div>
+      <div class="grid" style="padding-top:6px;">
+        <div class="field full"><label>🔒 هل يتم حجز 20 % لحين جرد الفرع</label>
+          <select id="holdInput" required><option value="">اختر...</option><option value="نعم">نعم</option><option value="لا">لا</option></select>
+        </div>
+        <div class="field full"><label>📝 هل هناك ملاحظات أخرى؟</label><textarea id="otherNotesInput" placeholder="اكتب أي ملاحظات إضافية هنا..."></textarea></div>
+      </div>
+      <div class="step-actions" style="padding:6px 24px 24px;flex-direction:column;">
+        <button type="button" class="btn btn-back" data-back="3" style="margin-bottom:14px;align-self:flex-start;">→ رجوع</button>
+        <button type="button" class="btn btn-submit" id="submitBtn">✅ SUBMIT CLEARANCE</button>
+        <p id="statusMsg"></p>
+      </div>
+    </section>
+  </form>
+</div>
+
+<!-- نافذة البحث المنبثقة بالبصمة -->
+<div class="modal-overlay" id="searchModal">
+  <div class="modal-card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <h3 style="margin: 0; color: var(--orange-bright); font-size: 17px;">🔍 استعلام وطباعة تقرير الموظف (خاص بالإدارة)</h3>
+      <button id="closeSearchModal" style="background:none; border:none; color:var(--ink); font-size:22px; cursor:pointer;">✕</button>
+    </div>
+    <p style="font-size: 12px; color: var(--muted); margin: 0 0 14px;">اكتب رقم بصمة الموظف لعرض التقرير فوراً وطباعته بدون الحاجة لإعادة التسجيل:</p>
+    
+    <input type="text" id="searchEmpIdInput" placeholder="اكتب رقم البصمة هنا..." style="
+      width: 100%; padding: 11px 14px; border-radius: 7px; border: 1.5px solid var(--orange);
+      background: var(--input-bg); color: var(--ink); font-family: 'Cairo', sans-serif; font-size: 14px;
+      margin-bottom: 10px; outline: none; box-sizing: border-box;
+    ">
+    
+    <div id="searchErrorHint" style="font-size: 12px; color: var(--red); margin-bottom: 12px; display: none;"></div>
+
+    <div style="display: flex; justify-content: flex-end; gap: 10px;">
+      <button type="button" id="btnExecuteSearch" style="
+        background: linear-gradient(90deg, var(--orange), var(--orange-bright));
+        color: #121029; font-weight: 800; border: none; border-radius: 7px;
+        padding: 10px 22px; cursor: pointer; font-family: 'Cairo', sans-serif; font-size: 13.5px;
+      ">عرض وطباعة التقرير</button>
+    </div>
+  </div>
+</div>
+
+<div id="reportSection" hidden>
+  <div class="rep-header">
+    <div class="rep-logo-box">
+      <div class="ravin-logo-text">RAV<span>IN</span></div>
+    </div>
+    <div class="rep-title">
+      <h1>EMPLOYEE CLEARANCE</h1>
+      <p>نموذج إخلاء طرف موظف - RAVIN INTERNATIONAL TRADING</p>
+    </div>
+    <div class="rep-meta">
+      CLEARANCE NO: <br><span id="repNo"></span><br><br>
+      DATE: <br><span id="repDate"></span>
+    </div>
+  </div>
+
+  <div class="rep-body">
+    <div class="rep-box">
+      <div class="rep-box-header"><span class="num">01</span> EMPLOYEE INFORMATION - البيانات الشخصية</div>
+      <div class="rep-grid">
+        <div class="rep-item"><span class="lbl">Full Name</span> <span class="val" id="repName"></span></div>
+        <div class="rep-item"><span class="lbl">Mobile</span> <span class="val" id="repMobile"></span></div>
+        <div class="rep-item"><span class="lbl">Employee ID</span> <span class="val" id="repID"></span></div>
+        <div class="rep-item"><span class="lbl">Last Working Date</span> <span class="val" id="repLWD"></span></div>
+        <div class="rep-item"><span class="lbl">Branch</span> <span class="val" id="repBranch"></span></div>
+        <div class="rep-item"><span class="lbl">Submitted By</span> <span class="val">HR EBRAHIM HASSAN</span></div>
+        <div class="rep-item"><span class="lbl">Job Position</span> <span class="val" id="repJob"></span></div>
+        <div class="rep-item" style="border-bottom:none;"><span class="lbl">Request Date</span> <span class="val" id="repReqDate"></span></div>
+      </div>
+    </div>
+
+    <div class="rep-box">
+      <div class="rep-box-header"><span class="num">02</span> RESIGNATION - الاستقالة</div>
+      <div class="rep-grid">
+        <div class="rep-item"><span class="lbl">Resignation Status</span> <span class="val" id="repResStatus"></span></div>
+        <div class="rep-item"><span class="lbl">14 Days Completed</span> <span class="val" id="rep14Days"></span></div>
+      </div>
+    </div>
+
+    <div class="rep-box">
+      <div class="rep-box-header"><span class="num">03</span> COMPANY ASSETS - عهد الشركة</div>
+      <div class="rep-grid">
+        <div class="rep-item"><span class="lbl">Uniform</span> <span class="val" id="repUni"></span></div>
+        <div class="rep-item"><span class="lbl">Name Tag</span> <span class="val" id="repNameTag"></span></div>
+        <div class="rep-item full" style="grid-column: 1/-1; border-left:none; border-bottom:none;"><span class="lbl">Other Assets</span> <span class="val" id="repOther"></span></div>
+      </div>
+    </div>
+
+    <div class="rep-box" style="margin-bottom: 0;">
+      <div class="rep-box-header"><span class="num">04</span> FINANCIAL CLEARANCE - البراءة المالية</div>
+      <div class="rep-grid">
+        <div class="rep-item"><span class="lbl">Outstanding Dues</span> <span class="val" id="repDues"></span></div>
+        <div class="rep-item"><span class="lbl">20% Hold</span> <span class="val" id="repHold"></span></div>
+        <div class="rep-item full" style="grid-column: 1/-1; border-left:none; border-bottom:none;"><span class="lbl">Notes</span> <span class="val" id="repNotes"></span></div>
+      </div>
+    </div>
+
+    <div id="repFinalStatus"></div>
+
+    <div class="rep-footer-new">
+      <div class="footer-left">
+        <div class="fc-title"><span class="check-icon">✔️</span> Final Clearance</div>
+        <div class="fc-sub">تم إخلاء الطرف</div>
+        <div class="stamp-box">CLEARED</div>
+        <div class="fc-date-line"></div>
+        <div class="fc-date" id="repStampDate2"></div>
+      </div>
+      
+      <div class="footer-divider"></div>
+      
+      <div class="footer-right">
+        <div class="fa-title"><span>الاعتماد النهائي – FINAL APPROVAL</span><span class="num-badge">05</span></div>
+        <div class="sig-name">HR EBRAHIM HASSAN</div>
+        <div class="sig-line"></div>
+        <div class="sig-role">Current print date: <span id="repPrintDate2"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="owner-actions" id="ownerActions" style="display: none;">
+    <button class="btn-print" onclick="window.print()">🖨️ طباعة نموذج إخلاء الطرف</button>
+    <button class="btn-newentry" id="newEntryBtn">➕ العودة للرئيسية</button>
+  </div>
+</div>
+
+<script>
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzjXamD3UV8aF9gnRCyNXxr8Bky_BqXrEDS5SsePzVuJ-FgKlTcfr46wzqBLVCiYpGgSQ/exec";
+
+  // دالة تبديل المظهر بين اللايت مود والدارك مود
+  function toggleTheme() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme') || 'light';
+    const next = current === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', next);
+    document.getElementById('themeIcon').className = next === 'light' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+  }
+
+  // التحقق من صلاحية المالك (owner=true)
+  const isOwner = window.location.search.indexOf('owner=true') !== -1;
+  const openSearchModalBtn = document.getElementById('openSearchModalBtn');
+  
+  if (isOwner && openSearchModalBtn) {
+    openSearchModalBtn.style.display = 'inline-flex';
+  }
+
+  const employeeIdInput = document.getElementById('employeeIdInput');
+  const fullNameInput = document.getElementById('fullNameInput');
+  const branchInput = document.getElementById('branchInput');
+  const jobPositionInput = document.getElementById('jobPositionInput');
+  const mobileInput = document.getElementById('mobileInput');
+  const lookupHint = document.getElementById('lookupHint');
+
+  let employeesData = [];
+  let employeesLoaded = false;
+
+  function loadEmployees(){
+    if (SCRIPT_URL.includes("PASTE_YOUR")) return;
+    fetch(SCRIPT_URL)
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        if(Array.isArray(data)) {
+          employeesData = data; 
+          employeesLoaded = true;
+        }
+      })
+      .catch(function(err){});
+  }
+  loadEmployees();
+
+  employeeIdInput.addEventListener('blur', function(){
+    const inputVal = employeeIdInput.value.trim();
+    if (!inputVal) return;
+    if (!employeesLoaded) {
+      lookupHint.textContent = "لسه بيحمّل بيانات الموظفين، حاول تاني بعد لحظة";
+      lookupHint.className = "lookup-hint notfound";
+      return;
+    }
+    const match = employeesData.find(function(emp){ 
+      return String(emp.id).trim() === inputVal; 
+    });
+    if (match) {
+      fullNameInput.value = match.name || "";
+      branchInput.value = match.branch || "";
+      jobPositionInput.value = match.job || "";
+      if (match.mobile) mobileInput.value = match.mobile;
+      lookupHint.textContent = "✅ تم إيجاد بيانات الموظف تلقائيًا";
+      lookupHint.className = "lookup-hint found";
+    } else {
+      lookupHint.textContent = "⚠️ الرقم مش موجود في تاب ibrahim، من فضلك اكتب البيانات يدويًا";
+      lookupHint.className = "lookup-hint notfound";
+    }
+  });
+
+  const panels = document.querySelectorAll('.step-panel');
+  const dots = document.querySelectorAll('.step-dot');
+  
+  function goToStep(n){
+    panels.forEach(function(p){ p.hidden = (p.dataset.step != n); });
+    dots.forEach(function(d){
+      d.classList.toggle('active', d.dataset.dot == n);
+      d.classList.toggle('done', Number(d.dataset.dot) < Number(n));
+    });
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+  
+  document.querySelectorAll('.btn-next').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var currentPanel = btn.closest('.step-panel');
+      var inputs = currentPanel.querySelectorAll('input, select, textarea');
+      var isValid = true;
+      var firstInvalid = null;
+      
+      for (var i = 0; i < inputs.length; i++) {
+        var el = inputs[i];
+        if (el.offsetParent !== null && el.required) {
+          if(el.type === 'radio') {
+             var checked = document.querySelector('input[name="'+el.name+'"]:checked');
+             if(!checked) { isValid = false; firstInvalid = el; break; }
+          } else if (!el.value || el.value.trim() === '') {
+            isValid = false; firstInvalid = el; break;
+          }
+        }
+      }
+      if (isValid) {
+        goToStep(btn.dataset.next);
+      } else if (firstInvalid && typeof firstInvalid.reportValidity === 'function') {
+        firstInvalid.reportValidity();
+      }
+    });
+  });
+  
+  document.querySelectorAll('[data-back]').forEach(function(btn){
+    btn.addEventListener('click', function(){ goToStep(btn.dataset.back); });
+  });
+
+  function setupSmartToggle(radioName, revealId){
+    document.querySelectorAll('input[name="' + radioName + '"]').forEach(function(r){
+      r.addEventListener('change', function(){
+        const show = (this.value === 'نعم');
+        const reveal = document.getElementById(revealId);
+        reveal.hidden = !show;
+        reveal.querySelectorAll('input, select, textarea').forEach(function(el){
+          if(el.id !== 'uniformValue') { el.required = show; }
+          if(!show) { el.value=''; }
+        });
+        if(show && revealId === 'uniformReveal') {
+          calculateUniformTotal();
+        }
+      });
+    });
+  }
+  setupSmartToggle('uniformIssue', 'uniformReveal');
+  setupSmartToggle('nameTagIssue', 'nameTagReveal');
+  setupSmartToggle('duesIssue', 'duesReveal');
+
+  const uniformWinterInput = document.getElementById('uniformWinterInput');
+  const uniformSummerInput = document.getElementById('uniformSummerInput');
+  const uniformValueInput = document.getElementById('uniformValue');
+
+  function calculateUniformTotal() {
+    const winterCount = parseInt(uniformWinterInput.value) || 0;
+    const summerCount = parseInt(uniformSummerInput.value) || 0;
+    const total = (winterCount * 100) + (summerCount * 50);
+    uniformValueInput.value = total;
+  }
+
+  uniformWinterInput.addEventListener('input', calculateUniformTotal);
+  uniformSummerInput.addEventListener('input', calculateUniformTotal);
+
+  function resetForm(){
+    document.getElementById('clearanceForm').reset();
+    document.querySelectorAll('.reveal').forEach(function(r){ r.hidden = true; });
+    document.querySelectorAll('.reveal input, .reveal select, .reveal textarea').forEach(function(el){ el.required = false; el.value=''; });
+    uniformWinterInput.value = 0;
+    uniformSummerInput.value = 0;
+    uniformValueInput.value = 0;
+    lookupHint.textContent = '';
+    lookupHint.className = 'lookup-hint';
+    goToStep(1);
+    document.getElementById('mainApp').style.display = '';
+    document.getElementById('reportSection').hidden = true;
+    document.getElementById('ownerActions').style.display = 'none';
+    document.body.classList.remove('owner-mode');
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = false;
+    submitBtn.textContent = "✅ SUBMIT CLEARANCE";
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+  document.getElementById('newEntryBtn').addEventListener('click', resetForm);
+
+  function fileToBase64(file){
+    return new Promise(function(resolve, reject){
+      const reader = new FileReader();
+      reader.onload = function(){ resolve(reader.result.split(',')[1]); };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // تسليم الفورم
+  document.getElementById('submitBtn').addEventListener('click', async function(e){
+    e.preventDefault();
+    
+    var finalPanel = document.querySelector('.step-panel[data-step="4"]');
+    var finalInputs = finalPanel.querySelectorAll('input, select, textarea');
+    var isFinalValid = true;
+    var finalFirstInvalid = null;
+    
+    for (var j = 0; j < finalInputs.length; j++) {
+      var el2 = finalInputs[j];
+      if (el2.offsetParent !== null && el2.required) {
+         if(el2.type === 'radio') {
+             var checked2 = document.querySelector('input[name="'+el2.name+'"]:checked');
+             if(!checked2) { isFinalValid = false; finalFirstInvalid = el2; break; }
+          } else if (!el2.value || el2.value.trim() === '') {
+            isFinalValid = false; finalFirstInvalid = el2; break;
+          }
+      }
+    }
+    
+    if (!isFinalValid) {
+      if (finalFirstInvalid && typeof finalFirstInvalid.reportValidity === 'function') {
+        finalFirstInvalid.reportValidity();
+      }
+      return;
+    }
+
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = "جاري الإرسال...";
+
+    let resignationFile = null;
+    const file = document.getElementById('resignationDocInput').files[0];
+    if (file) {
+      try {
+        const base64 = await fileToBase64(file);
+        resignationFile = { fileName: file.name, mimeType: file.type, base64: base64 };
+      } catch (err) {}
+    }
+
+    var uniIssueInput0 = document.querySelector('input[name="uniformIssue"]:checked');
+    var tagIssueInput0 = document.querySelector('input[name="nameTagIssue"]:checked');
+    var duesIssueInput0 = document.querySelector('input[name="duesIssue"]:checked');
+
+    const payload = {
+      userEmail: window.sessionStorage.getItem('userEmail') || "HR Admin / Ebrahim Hassan",
+      employeeId: document.getElementById('employeeIdInput').value,
+      fullName: document.getElementById('fullNameInput').value,
+      branch: document.getElementById('branchInput').value,
+      jobPosition: document.getElementById('jobPositionInput').value,
+      mobile: document.getElementById('mobileInput').value,
+      lastWorkingDate: document.getElementById('lastWorkingDateInput').value,
+      resignationStatus: document.getElementById('resignationStatusInput').value,
+      days14: document.getElementById('days14Input').value,
+      resignationFile: resignationFile,
+      uniformIssue: uniIssueInput0 ? uniIssueInput0.value : '',
+      uniformWinter: uniformWinterInput.value,
+      uniformSummer: uniformSummerInput.value,
+      uniformValue: uniformValueInput.value,
+      nameTagIssue: tagIssueInput0 ? tagIssueInput0.value : '',
+      nameTagType: document.getElementById('nameTagType').value,
+      nameTagValue: document.getElementById('nameTagValue').value,
+      otherAssets: document.getElementById('otherAssetsInput').value,
+      duesIssue: duesIssueInput0 ? duesIssueInput0.value : '',
+      duesType: document.getElementById('duesType').value,
+      duesValue: document.getElementById('duesValue').value,
+      duesNotes: document.getElementById('duesNotes').value,
+      hold20: document.getElementById('holdInput').value,
+      otherNotes: document.getElementById('otherNotesInput').value
+    };
+
+    if (!SCRIPT_URL.includes("PASTE_YOUR")) {
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      }).catch(function(){});
+    }
+
+    setTimeout(function() {
+      const now = new Date();
+      const day = String(now.getDate()).padStart(2, '0');
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const year = now.getFullYear();
+      const dateStringFormatted = `${day} / ${month} / ${year}`;
+      const dateString = now.toLocaleDateString('en-GB'); 
+      const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+      
+      document.getElementById('repNo').textContent = "CL-" + year + "-" + Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('repDate').textContent = dateString + " " + timeString;
+      document.getElementById('repReqDate').textContent = dateString;
+      document.getElementById('repStampDate2').textContent = dateStringFormatted;
+      document.getElementById('repPrintDate2').textContent = dateStringFormatted;
+
+      document.getElementById('repName').textContent = document.getElementById('fullNameInput').value;
+      document.getElementById('repID').textContent = document.getElementById('employeeIdInput').value;
+      document.getElementById('repBranch').textContent = document.getElementById('branchInput').value;
+      document.getElementById('repJob').textContent = document.getElementById('jobPositionInput').value;
+      document.getElementById('repMobile').textContent = document.getElementById('mobileInput').value;
+      document.getElementById('repLWD').textContent = document.getElementById('lastWorkingDateInput').value;
+      
+      const resStatus = document.getElementById('resignationStatusInput').value;
+      const days14 = document.getElementById('days14Input').value;
+      
+      document.getElementById('repResStatus').textContent = resStatus;
+      document.getElementById('rep14Days').textContent = days14;
+
+      var uniIssueInput = document.querySelector('input[name="uniformIssue"]:checked');
+      const uniIssue = uniIssueInput ? uniIssueInput.value : '';
+      if (uniIssue === 'نعم') {
+        let wCount = uniformWinterInput.value || 0;
+        let sCount = uniformSummerInput.value || 0;
+        document.getElementById('repUni').textContent = `مطلوب - شتوي: ${wCount} قطعة | صيفي: ${sCount} قطعة (الإجمالي: ${uniformValueInput.value} ج.م)`;
+      } else {
+        document.getElementById('repUni').textContent = 'تم التسليم ✔️';
+      }
+      
+      var tagIssueInput = document.querySelector('input[name="nameTagIssue"]:checked');
+      const tagIssue = tagIssueInput ? tagIssueInput.value : '';
+      document.getElementById('repNameTag').textContent = tagIssue === 'نعم' ? "مطلوب: " + document.getElementById('nameTagType').value + " (عدد: " + document.getElementById('nameTagValue').value + ")" : 'تم التسليم ✔️';
+      
+      const otherA = document.getElementById('otherAssetsInput').value;
+      document.getElementById('repOther').textContent = otherA ? otherA : 'لا يوجد';
+
+      var duesIssueInput = document.querySelector('input[name="duesIssue"]:checked');
+      const duesIssue = duesIssueInput ? duesIssueInput.value : '';
+      const dVal = document.getElementById('duesValue').value;
+      document.getElementById('repDues').textContent = duesIssue === 'نعم' ? document.getElementById('duesType').value + " - " + dVal + " ج.م" : 'لا يوجد مستحقات ✔️';
+      
+      const isHold = document.getElementById('holdInput').value;
+      document.getElementById('repHold').textContent = isHold === 'نعم' ? 'نعم، تم الحجز' : 'لا يوجد حجز';
+      
+      const notes = document.getElementById('otherNotesInput').value;
+      document.getElementById('repNotes').textContent = notes ? notes : 'لا يوجد ملاحظات إضافية';
+
+      let hasIssues = false;
+      let reasons = []; 
+      let totalDeduction = 0;
+
+      if (resStatus === 'انقطاع عن العمل' || days14 === 'لا') {
+        hasIssues = true;
+        reasons.push({ label: 'خصم قانوني (انقطاع أو عدم استكمال 14 يوم)', amount: 650 });
+        totalDeduction += 650;
+      }
+      if (isHold === 'نعم') {
+        hasIssues = true;
+        reasons.push({ label: 'حجز لحين جرد الفرع', amount: 1300 });
+        totalDeduction += 1300;
+      }
+      if (uniIssue === 'نعم') {
+        hasIssues = true;
+        let uVal = parseFloat(uniformValueInput.value) || 0;
+        reasons.push({ label: "عهد يونيفورم (شتوي وصيفي)", amount: uVal });
+        totalDeduction += uVal;
+      }
+      if (tagIssue === 'نعم') {
+        hasIssues = true;
+        const tagQty = parseInt(document.getElementById('nameTagValue').value) || 1;
+        const tagDeduction = tagQty * 50;
+        reasons.push({ label: "خصم Name Tag (العدد: " + tagQty + ")", amount: tagDeduction });
+        totalDeduction += tagDeduction;
+      }
+      if (duesIssue === 'نعم' && dVal) {
+        hasIssues = true;
+        let pVal = parseFloat(dVal) || 0;
+        reasons.push({ label: document.getElementById('duesType').value || 'مستحقات أخرى', amount: pVal });
+        totalDeduction += pVal;
+      }
+      if (otherA.trim() !== '') {
+        hasIssues = true;
+        reasons.push({ label: "عهد أخرى: " + otherA, amount: "يحدد لاحقاً" });
+      }
+
+      const statusBox = document.getElementById('repFinalStatus');
+      
+      if (hasIssues) {
+        let htmlContent = "<div class='danger-header'><span style='font-size:22px;'>❌</span><span>توجد مستحقات أو عهد مطلوبة من الموظف:</span></div>";
+        if (reasons.length > 0) {
+          htmlContent += "<div class='deduction-grid'>";
+          reasons.forEach(function(r){ 
+            let amtFormat = typeof r.amount === 'number' ? r.amount + " ج.م" : r.amount;
+            htmlContent += "<div class='deduction-item'><span class='reason'>" + r.label + "</span><span class='amount'>" + amtFormat + "</span></div>";
+          });
+          htmlContent += "</div>";
+          if (totalDeduction > 0) {
+            htmlContent += "<div class='status-total'>إجمالي المطلوب / المحجوز = " + totalDeduction + " ج.م</div>";
+          }
+        }
+        statusBox.className = 'status-box status-danger';
+        statusBox.innerHTML = htmlContent;
+      } else {
+        statusBox.className = 'status-box status-success';
+        statusBox.innerHTML = `
+          <div class="text-content">
+              <div>لا يوجد أي عهد أو مستحقات على الموظف</div>
+              <div style="font-size:14px; font-weight:700;">تم إنهاء جميع الالتزامات المالية والعهد بنجاح</div>
+          </div>
+        `;
+      }
+
+      document.getElementById('mainApp').style.display = 'none';
+      document.getElementById('reportSection').hidden = false;
+
+      if (isOwner) {
+        document.getElementById('ownerActions').style.display = 'flex';
+        document.body.classList.add('owner-mode');
+      } else {
+        document.body.classList.remove('owner-mode');
+      }
+
+    }, 800); 
+  });
+
+  const searchModal = document.getElementById('searchModal');
+  const closeSearchModal = document.getElementById('closeSearchModal');
+  const btnExecuteSearch = document.getElementById('btnExecuteSearch');
+  const searchEmpIdInput = document.getElementById('searchEmpIdInput');
+  const searchErrorHint = document.getElementById('searchErrorHint');
+
+  if (openSearchModalBtn) {
+    openSearchModalBtn.addEventListener('click', function(){
+      searchModal.style.display = 'flex';
+      searchEmpIdInput.value = '';
+      searchErrorHint.style.display = 'none';
+      searchEmpIdInput.focus();
+    });
+  }
+
+  if (closeSearchModal) {
+    closeSearchModal.addEventListener('click', function(){
+      searchModal.style.display = 'none';
+    });
+  }
+
+  btnExecuteSearch.addEventListener('click', function(){
+    const empId = searchEmpIdInput.value.trim();
+    if (!empId) {
+      searchErrorHint.textContent = "برجاء كتابة رقم البصمة أولاً";
+      searchErrorHint.style.display = 'block';
+      return;
+    }
+
+    const emp = employeesData.find(function(item){
+      return String(item.id).trim() === empId;
+    });
+
+    if (!emp) {
+      searchErrorHint.textContent = "رقم البصمة غير موجود في قاعدة بيانات الموظفين!";
+      searchErrorHint.style.display = 'block';
+      return;
+    }
+
+    searchModal.style.display = 'none';
+
+    const now = new Date();
+    const day = String(now.getDate()).padStart(2, '0');
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const year = now.getFullYear();
+    const dateFormatted = `${day} / ${month} / ${year}`;
+    const dateString = now.toLocaleDateString('en-GB');
+    const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+    document.getElementById('repNo').textContent = "CL-" + year + "-" + emp.id;
+    document.getElementById('repDate').textContent = dateString + " " + timeString;
+    document.getElementById('repReqDate').textContent = dateString;
+    document.getElementById('repStampDate2').textContent = dateFormatted;
+    document.getElementById('repPrintDate2').textContent = dateFormatted;
+
+    document.getElementById('repName').textContent = emp.name || "—";
+    document.getElementById('repID').textContent = emp.id || "—";
+    document.getElementById('repBranch').textContent = emp.branch || "—";
+    document.getElementById('repJob').textContent = emp.job || "—";
+    document.getElementById('repMobile').textContent = emp.mobile || "—";
+    document.getElementById('repLWD').textContent = dateFormatted;
+
+    document.getElementById('repResStatus').textContent = "إخلاء طرف معتمد";
+    document.getElementById('rep14Days').textContent = "نعم";
+    document.getElementById('repUni').textContent = 'تم التسليم ✔️';
+    document.getElementById('repNameTag').textContent = 'تم التسليم ✔️';
+    document.getElementById('repOther').textContent = 'لا يوجد';
+    document.getElementById('repDues').textContent = 'لا يوجد مستحقات ✔️';
+    document.getElementById('repHold').textContent = 'لا يوجد حجز';
+    document.getElementById('repNotes').textContent = 'تم استخراج التقرير عن طريق استعلام البصمة المباشر';
+
+    const statusBox = document.getElementById('repFinalStatus');
+    statusBox.className = 'status-box status-success';
+    statusBox.innerHTML = `
+      <div class="text-content">
+          <div>لا يوجد أي عهد أو مستحقات على الموظف</div>
+          <div style="font-size:14px; font-weight:700;">تم إنهاء جميع الالتزامات المالية والعهد بنجاح</div>
+      </div>
+    `;
+
+    document.getElementById('mainApp').style.display = 'none';
+    document.getElementById('reportSection').hidden = false;
+    document.getElementById('ownerActions').style.display = 'flex';
+    document.body.classList.add('owner-mode');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+</script>
+</body>
+</html>
